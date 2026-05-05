@@ -2,7 +2,7 @@ import streamlit as st
 from rag import process_urls, generate, reset_vector_store, get_available_prompt_templates, get_prompt_template_descriptions, is_web_search_available, set_prompt_template, current_prompt_template
 
 st.set_page_config(page_title="Research Assistant RAG", layout="wide")
-st.title("🔍 Market Research Assistant - Pixii :")")
+st.title("🔍 Market Research Assistant - Pixii😊" )
 
 # Initialize session state
 if "initialized" not in st.session_state:
