@@ -31,7 +31,13 @@ use_web_search = st.sidebar.checkbox(
     help="Enable supplementary web search for current/external information"
 )
 
-web_search_available = is_web_search_available()
+# Safely check if web search is available
+try:
+    web_search_available = is_web_search_available()
+except Exception as e:
+    web_search_available = False
+    print(f"⚠️ Error checking web search availability: {e}")
+
 if not web_search_available:
     st.sidebar.warning("⚠️ Web search not available. Install duckduckgo-search to enable it.")
 

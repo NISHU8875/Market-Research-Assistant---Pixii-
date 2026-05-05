@@ -41,7 +41,12 @@ def initialize():
         )
     
     if search_manager is None:
-        search_manager = WebSearchManager()
+        try:
+            search_manager = WebSearchManager()
+        except Exception as e:
+            print(f"⚠️ Web search initialization failed: {e}")
+            # Create a disabled search manager so the app continues to work
+            search_manager = WebSearchManager()
 
 def reset_vector_store():
     global vector_store

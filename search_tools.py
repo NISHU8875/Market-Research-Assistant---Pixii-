@@ -18,9 +18,49 @@ class WebSearchManager:
     """Manages web searches with grounding in document context"""
     
     def __init__(self):
-        self.search_enabled = HAS_DUCKDUCKGO
-        if self.search_enabled:
-            self.search_tool = DuckDuckGoSearchRun()
+        self.search_enabled = False
+        self.search_tool = None
+        self.error_message = None
+        
+        # Try to initialize DuckDuckGo search, but don't crash if it fails
+        if HAS_DUCKDUCKGO:
+            try:
+                self.search_tool = DuckDuckGoSearchRun()
+                self.search_enabled = True
+            except Exception as e:
+                # Log the error but don't crash - web search is optional
+                self.error_message = f"Web search unavailable: {str(e)[:100]}"
+                self.search_enabled = False
+                print(f"⚠️ Warning: {self.error_message}")
+    
+    def search(self, query: str, max_results: int = 3) -> Optional[str]:
+        """
+        Perform a web search
+        
+        Args:
+            query: Search query
+            max_results: Maximum number of results to return
+            
+        Returns:
+            Search results as string or None if search not available
+        """
+        if not self.search_enabled or not self.search_tool:
+            return None
+        
+        try:
+            results = self.search_tool.run(query)
+            return results
+        except Exception as e:
+            print(f"⚠️ Search error: {e}")
+            return None
+    
+    def is_search_available(self) -> bool:
+        """Check if web search is available"""
+        return self.search_enabled
+    
+    def format_search_results(self, results: str) -> str:
+        """Format search results for display"""
+        return f"**Web Search Results:**\n{results}"
     
     def search(self, query: str, max_results: int = 3) -> Optional[str]:
         """
