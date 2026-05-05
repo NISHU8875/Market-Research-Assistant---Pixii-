@@ -1,0 +1,22 @@
+langchain-community~=0.4.1
+langchain-text-splitters~=1.0.0
+langchain-core~=1.1.0
+python-dotenv~=1.1.0
+streamlit~=1.46.0
+langchain-chroma==1.0.0
+langchain-groq==1.1.0
+langchain-huggingface==1.1.0
+sentence-transformers==5.1.2  #Streamlit deployment, Load hugging face embeddings
+beautifulsoup4==4.13.3 #Streamlit deployement, web base loader internally uses it
+duckduckgo-search==3.9.10  # Web search capability
+
+# Additional dependencies for Streamlit deployment stability
+requests>=2.31.0  # HTTP library for reliable web requests
+pydantic>=2.0.0  # Data validation for LangChain compatibility
+numpy>=1.24.0  # Required by embeddings and transformer models
+urllib3>=2.0.0  # Improved HTTP connection handling for Streamlit Cloud
+certifi>=2023.7.22  # SSL/TLS certificate verification for HTTPS
+tqdm>=4.65.0  # Progress bars for model downloads and processing
+cachetools>=5.3.0  # Caching utilities to optimize Streamlit performance
+huggingface-hub>=0.17.0  # Download and manage models from Hugging Face Hub
+typing-extensions>=4.7.0  # Enhanced type hints for better compatibility
