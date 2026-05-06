@@ -152,7 +152,7 @@ research-assistant-rag-agent/
 
 1. **Clone the Repository**
 ```bash
-git clone https://github.com/yourusername/research-assistant-rag-agent.git
+git clone https://github.com/NISHU8875/Market-Research-Assistant---Pixii-.git
 cd research-assistant-rag-agent
 ```
 
@@ -405,7 +405,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 🔗 Live Demo
 
-**Try it out**: [Open Streamlit App](https://real-estate-rag-agent-nishu-om.streamlit.app/)
+**Try it out**: [Open Streamlit App](https://market-research-assistant-nishu-pixii.streamlit.app/)
 
 ---
 
